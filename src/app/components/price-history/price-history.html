@@ -1,0 +1,91 @@
+<div>
+
+  <div class="mb-8">
+
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+     {{ language.t('historyTitle') }}
+    </h2>
+
+    <p class="mt-2 text-gray-600 dark:text-gray-400">
+     {{ language.t('historyDescription') }}
+    </p>
+
+  </div>
+
+
+  <div class="overflow-x-auto rounded-2xl border border-gray-200
+         dark:border-gray-700">
+
+    <table class="w-full min-w-[750px] bg-white text-right text-gray-900
+         dark:bg-gray-800 dark:text-gray-100">
+
+      <thead class="bg-amber-500 text-white">
+
+        <tr>
+
+          <th class="px-6 py-4">
+          {{ language.t('date') }}
+          </th>
+
+          <th class="px-6 py-4">
+            18K
+          </th>
+
+          <th class="px-6 py-4">
+            21K
+          </th>
+
+          <th class="px-6 py-4">
+            22K
+          </th>
+
+          <th class="px-6 py-4">
+            24K
+          </th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        @for (day of history; track day.date; let i = $index) {
+
+          <tr
+            [class.bg-gray-50]="i % 2 !== 0"
+            [class.dark:bg-gray-700]="i % 2 !== 0"
+            class="border-b border-gray-100 dark:border-gray-700"
+          >
+
+            <td class="px-6 py-4 font-medium">
+              {{ day.date }}
+            </td>
+
+            <td class="px-6 py-4">
+              {{ day.price18.toFixed(3) }}
+            </td>
+
+            <td class="px-6 py-4">
+              {{ day.price21.toFixed(3) }}
+            </td>
+
+            <td class="px-6 py-4">
+              {{ day.price22.toFixed(3) }}
+            </td>
+
+            <td class="px-6 py-4">
+              {{ day.price24.toFixed(3) }}
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

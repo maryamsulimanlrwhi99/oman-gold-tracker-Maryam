@@ -1,0 +1,191 @@
+<div>
+
+  <!-- Heading -->
+  <div class="mb-8">
+
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+     {{ language.t('trendTitle') }}
+    </h2>
+
+    <p class="mt-2 text-gray-600 dark:text-gray-400">
+     {{ language.t('trendDescription') }}
+    </p>
+
+  </div>
+
+
+  <!-- Karat buttons -->
+  <div class="mb-8 flex flex-wrap gap-3">
+
+    <button
+      (click)="selectKarat('18K')"
+      [class.bg-amber-500]="selectedKarat === '18K'"
+      [class.text-white]="selectedKarat === '18K'"
+      class="rounded-xl border border-amber-300 px-5 py-2 font-semibold"
+    >
+      18K
+    </button>
+
+    <button
+      (click)="selectKarat('21K')"
+      [class.bg-amber-500]="selectedKarat === '21K'"
+      [class.text-white]="selectedKarat === '21K'"
+      class="rounded-xl border border-amber-300 px-5 py-2 font-semibold"
+    >
+      21K
+    </button>
+
+    <button
+      (click)="selectKarat('22K')"
+      [class.bg-amber-500]="selectedKarat === '22K'"
+      [class.text-white]="selectedKarat === '22K'"
+      class="rounded-xl border border-amber-300 px-5 py-2 font-semibold"
+    >
+      22K
+    </button>
+
+    <button
+      (click)="selectKarat('24K')"
+      [class.bg-amber-500]="selectedKarat === '24K'"
+      [class.text-white]="selectedKarat === '24K'"
+      class="rounded-xl border border-amber-300 px-5 py-2 font-semibold"
+    >
+      24K
+    </button>
+
+  </div>
+
+
+  <!-- Summary -->
+  <div class="mb-8 grid gap-4 sm:grid-cols-3">
+
+    <div class="rounded-2xl border border-gray-200 bg-white p-5
+       dark:border-gray-700 dark:bg-gray-800">
+      <p class="text-sm text-gray-500">
+       {{ language.t('currentPrice') }}
+      </p>
+
+      <p class="mt-2 text-2xl font-bold">
+        {{ currentPrice.toFixed(3) }} {{ language.t('currencyShort') }}
+      </p>
+    </div>
+
+
+    <div class="rounded-2xl border border-gray-200 bg-white p-5
+       dark:border-gray-700 dark:bg-gray-800">
+      <p class="text-sm text-gray-500">
+       {{ language.t('highestPrice') }}
+      </p>
+
+      <p class="mt-2 text-2xl font-bold">
+        {{ highestPrice.toFixed(3) }} {{ language.t('currencyShort') }}
+      </p>
+    </div>
+
+
+    <div class="rounded-2xl border border-gray-200 bg-white p-5
+       dark:border-gray-700 dark:bg-gray-800">
+      <p class="text-sm text-gray-500">
+       {{ language.t('lowestPrice') }}
+      </p>
+
+      <p class="mt-2 text-2xl font-bold">
+        {{ lowestPrice.toFixed(3) }} {{ language.t('currencyShort') }}
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- Chart -->
+  <div class="overflow-x-auto rounded-2xl border border-gray-200 bg-white p-6 shadow-sm
+       dark:border-gray-700 dark:bg-gray-800">
+
+    <svg
+      viewBox="0 0 800 250"
+      class="h-72 min-w-[700px] w-full"
+    >
+
+      <!-- Grid lines -->
+      <line
+        x1="20"
+        y1="50"
+        x2="780"
+        y2="50"
+        stroke="#e5e7eb"
+      />
+
+      <line
+        x1="20"
+        y1="125"
+        x2="780"
+        y2="125"
+        stroke="#e5e7eb"
+      />
+
+      <line
+        x1="20"
+        y1="200"
+        x2="780"
+        y2="200"
+        stroke="#e5e7eb"
+      />
+
+
+      <!-- Price line -->
+      <polyline
+        [attr.points]="chartPoints"
+        fill="none"
+        stroke="#d97706"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <!-- Comparison -->
+  <div class="mt-6 grid gap-4 sm:grid-cols-3">
+
+    <div class="rounded-xl bg-gray-100 p-4 dark:bg-gray-800">
+      <p class="text-sm text-gray-500
+      dark:text-gray-400">
+       {{ language.t('currentPrice') }}
+      </p>
+
+      <p class="mt-1 font-bold">
+        {{ currentPrice.toFixed(3) }} {{ language.t('currencyShort') }}
+      </p>
+    </div>
+
+
+    <div class="rounded-xl bg-gray-100 p-4 dark:bg-gray-800">
+      <p class="text-sm text-gray-500
+      dark:text-gray-400">
+       {{ language.t('previousPrice') }}
+      </p>
+
+      <p class="mt-1 font-bold">
+        {{ previousPrice.toFixed(3) }} {{ language.t('currencyShort') }}
+      </p>
+    </div>
+
+
+    <div class="rounded-xl bg-gray-100 p-4 dark:bg-gray-800">
+      <p class="text-sm text-gray-500
+      dark:text-gray-400">
+       {{ language.t('change') }}
+      </p>
+
+      <p class="mt-1 font-bold">
+        {{ priceChange > 0 ? '+' : '' }}
+        {{ priceChange.toFixed(3) }} {{ language.t('currencyShort') }}
+      </p>
+    </div>
+
+  </div>
+ 
+</div>

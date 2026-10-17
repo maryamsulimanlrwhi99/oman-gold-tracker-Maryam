@@ -1,0 +1,78 @@
+<section class="px-4 pt-8 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl">
+
+    <!-- Breadcrumb -->
+    <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+      {{ language.t('breadcrumbHome') }}
+
+      <span class="mx-2">/</span>
+
+      {{ language.t('breadcrumbPrices') }}
+    </div>
+
+    <!-- Hero -->
+    <div
+      class="overflow-hidden rounded-3xl bg-gradient-to-l from-purple-600 via-amber-500 to-yellow-400 text-white shadow-lg"
+    >
+
+      <!-- Hero main content -->
+      <div class="px-6 py-12 sm:px-10 sm:py-16">
+
+        <span
+          class="inline-block rounded-full bg-white/20 px-4 py-1.5 text-sm font-medium"
+        >
+          {{ language.t('heroBadge') }}
+        </span>
+
+        <h2 class="mt-5 text-3xl font-bold sm:text-4xl lg:text-5xl">
+          {{ language.t('heroTitle') }}
+        </h2>
+
+        <p class="mt-4 max-w-2xl text-sm leading-7 text-amber-50 sm:text-base">
+          {{ language.t('heroDescription') }}
+        </p>
+         
+
+      </div>
+
+      <!-- Bottom information -->
+      <div
+        class="grid gap-4 border-t border-white/20 bg-black/10 px-6 py-5 text-sm sm:grid-cols-3 sm:px-10"
+      >
+
+        <div>
+          <p class="text-amber-100">
+            {{ language.t('lastUpdated') }}
+          </p>
+
+          <p class="mt-1 font-semibold">
+            {{ language.t('today') }}
+          </p>
+
+        </div>
+
+        <div>
+          <p class="text-amber-100">
+            {{ language.t('market') }}
+          </p>
+
+          <p class="mt-1 font-semibold">
+            {{ language.t('oman') }}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-amber-100">
+            {{ language.t('currency') }}
+          </p>
+
+          <p class="mt-1 font-semibold">
+            {{ language.t('omaniRial') }}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
