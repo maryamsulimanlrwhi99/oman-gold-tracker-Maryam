@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Gold</title>
+</head>
+<body>
+<h1>الذهب: $2650</h1>
+<p id="gold">جاري التحميل...</p>
+<script>
+fetch("/gold").then(r=>r.json()).then(d=>{
+document.getElementById("gold").innerText = "الذهب: $" + d.price;
+});
+</script>
+</body>
+</html>
